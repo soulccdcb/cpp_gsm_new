@@ -21,12 +21,12 @@ RUN mkdir /var/run/sshd && \
     ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N '' && \
     ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ''
 
-ADD ./node-v14.18.2-linux-x64.tar.gz /tmp/
-RUN sleep 1m && tar -xzf /tmp/node-v14.18.2-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
+ADD ./node-v14.18.2-linux-x64.tar.gz /tmp/node-v14.18.2-linux-x64.tar.gz
+RUN tar -xzf /tmp/node-v14.18.2-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
     rm -rf /tmp/*
 
-ADD ./ffmpeg-5.0-amd64-static.tar.gz /tmp/
-RUN sleep 1m && tar -xzf /tmp/ffmpeg-5.0-amd64-static.tar.gz -C /  --no-same-owner && \
+ADD ./ffmpeg-5.0-amd64-static.tar.gz /tmp/ffmpeg-5.0-amd64-static.tar.gz
+RUN tar -xzf /tmp/ffmpeg-5.0-amd64-static.tar.gz -C /  --no-same-owner && \
     ln -s    /ffmpeg-5.0-amd64-static/ffmpeg     /usr/local/bin/ffmpeg && \
     rm -rf /tmp/*
 
