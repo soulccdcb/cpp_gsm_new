@@ -9,7 +9,7 @@ ADD ./mbed.tar.bz2 /usr/local/
 ADD ./opc.tar.bz2 /usr/local/
 ADD ./ld.so.conf /etc/ld.so.conf
 
-RUN set -x && apt-get update && apt-get install -y --no-install-recommends  openssh-server tzdata wget nginx ffmpeg iputils-ping  net-tools && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*
+RUN set -x && apt-get update && apt-get install -y --no-install-recommends  openssh-server tzdata wget  && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*
 RUN mkdir /var/run/sshd && \
     rm /etc/localtime && \
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
@@ -35,5 +35,6 @@ VOLUME /var/www
 WORKDIR /var/www
 
 RUN npm config set registry https://registry.npm.taobao.org/ && npm install pm2 -g
+
 
 ENTRYPOINT ["/bin/bash", "/start.sh"]
