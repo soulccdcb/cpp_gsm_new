@@ -9,7 +9,7 @@ ADD ./mbed.tar.bz2 /usr/local/
 ADD ./opc.tar.bz2 /usr/local/
 ADD ./ld.so.conf /etc/ld.so.conf
 
-RUN set -x && apt-get update && apt-get install -y  openssh-server tzdata wget nginx ffmpeg iputils-ping  net-tools && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*
+RUN set -x && apt-get update && apt-get install -y  openssh-server tzdata wget nginx  iputils-ping  net-tools && rm -rf /var/lib/apt/lists/* /etc/apt/sources.list.d/*
 RUN mkdir /var/run/sshd && \
     rm /etc/localtime && \
     ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
