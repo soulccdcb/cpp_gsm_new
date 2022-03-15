@@ -25,6 +25,12 @@ ADD https://nodejs.org/dist/v14.19.0/node-v14.19.0-linux-x64.tar.gz /tmp/
 RUN tar -xzf /tmp/node-v14.19.0-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
     rm -rf /tmp/*
 
+ADD https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz /tmp/
+RUN xz -d  /tmp/ffmpeg-release-amd64-static.tar.xz   &&  tar -xf /tmp/ffmpeg-release-amd64-static.tar -C / --no-same-owner && \
+    ln -s /ffmpeg-5.0-amd64-static/ffmpeg  /usr/local/bin  &&  rm -rf /tmp/*
+
+
+
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
 
