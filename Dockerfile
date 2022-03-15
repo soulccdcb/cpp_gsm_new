@@ -21,8 +21,8 @@ RUN mkdir /var/run/sshd && \
     ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N '' && \
     ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N ''
 
-ADD https://nodejs.org/dist/v12.22.10/node-v12.22.10-linux-x64.tar.gz /tmp/
-RUN tar -xzf /tmp/node-v12.22.10-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
+ADD https://nodejs.org/dist/v11.5.0/node-v11.5.0-linux-x64.tar.gz /tmp/
+RUN tar -xzf /tmp/node-v11.5.0-linux-x64.tar.gz -C /usr/local --strip-components=1 --no-same-owner && \
     rm -rf /tmp/*
 
 ADD ./start.sh /start.sh
