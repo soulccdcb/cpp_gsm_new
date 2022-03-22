@@ -31,6 +31,7 @@ RUN xz -d  /tmp/ffmpeg-release-amd64-static.tar.xz   &&  tar -xf /tmp/ffmpeg-rel
 
 
 
+ADD ./event.conf /etc/nginx/conf.d/event.conf
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh
 
